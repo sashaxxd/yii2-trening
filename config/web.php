@@ -44,7 +44,9 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'test/<id:\d+>' => 'test/view',//Указываем урл для меню категории
+                'test/<id:\d+>' => 'test/view',//Указываем урл для контроллера тест
+                'page/<page:\d+>' => 'test/index',//Указываем урл для контроллера тест для пагинации
+                '/' => 'test/index',//Указываем урл для первой страницы контроллера тест
             ],
         ],
 
