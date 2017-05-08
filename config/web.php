@@ -3,9 +3,16 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
+    'language' => 'ru',
+    //'layout' => 'test', //Так можно задать шаблон глобально для всего сайта
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'modules' => [//Модуль админки
+        'admin' => [
+            'class' => 'app\modules\admin\Module',
+        ],
+    ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
