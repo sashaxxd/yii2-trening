@@ -38,4 +38,21 @@ if(!empty($model)): ?>
 </div>
 
   <?php endforeach;?>
+
+
+  <div id="wb_LayoutGrid6">
+    <div id="LayoutGrid6">
+      <div class="row">
+        <div class="col-1">
+          <div id="wb_Pagination1">
+            <?= \yii\widgets\LinkPager::widget(['pagination' => $pages])?>
+          </div>
+        </div>
+        <div class="col-2">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <?php endif; ?>

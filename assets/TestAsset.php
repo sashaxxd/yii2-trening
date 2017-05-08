@@ -21,6 +21,6 @@ class TestAsset extends AssetBundle
     public $js = [
     ];
     public $depends = [
-      
+        
     ];
 }
