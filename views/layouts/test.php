@@ -8,6 +8,7 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use app\assets\TestAsset;
+use yii\widgets\Menu;
 
 TestAsset::register($this);
 ?>
@@ -31,9 +32,23 @@ TestAsset::register($this);
                 <div id="wb_menu">
                     <label class="toggle" for="menu-submenu" id="menu-title"><span id="menu-icon"><span>&nbsp;</span><span>&nbsp;</span><span>&nbsp;</span></span></label>
                     <input type="checkbox" id="menu-submenu">
-                    <ul class="menu" id="menu">
-                        <li><a href="#">&#1043;&#1083;&#1072;&#1074;&#1085;&#1072;&#1103;</a></li>
-                    </ul>
+
+              <!--ВИДЖЕТ ПРОСТОГО МЕНЮ-->
+                        <?php
+                        echo Menu::widget([
+                            'items' => [
+                                ['label' => 'Главная', 'url' => ['test/index']],
+                                ['label' => 'Изображения', 'url' => ['images/index']],
+
+                            ],
+                            'options' => [
+                                'class' => 'menu',
+                                'id'=>'menu',
+
+                            ],
+                        ]);
+                        ?>
+
                 </div>
             </div>
         </div>
