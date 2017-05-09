@@ -1,3 +1,15 @@
+
+<div id="wb_LayoutGrid7">
+    <div id="LayoutGrid7">
+        <div class="row">
+            <div class="col-1">
+                <div id="wb_Breadcrumb1">
+                    <?php $this->params['breadcrumbs'][] = $model->name; // Хлебные крошки?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div id="wb_LayoutGrid1">
     <div id="LayoutGrid1">
         <div class="row">

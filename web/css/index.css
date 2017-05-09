@@ -570,3 +570,102 @@ body {
    font-family: Proxima Nova Lt;
    font-size: 29px;
 }
+
+
+
+.breadcrumb {
+   background-color: #FFFFFF;
+   background-image: none;
+   border: 0px #C0C0C0 solid;
+   font-family: "Proxima Nova Lt";
+   font-size: 0;
+   font-weight: normal;
+   list-style: none;
+   padding: 8px 15px 8px 15px;
+}
+.breadcrumb > li {
+   display: inline-block;
+   font-size: 13px;
+}
+.breadcrumb a {
+   color: #696969;
+   text-decoration: none;
+}
+.breadcrumb a:hover {
+   color: #A9A9A9;
+   text-decoration: underline;
+}
+.breadcrumb > .active {
+   color: #777777;
+}
+.breadcrumb > li + li:before {
+   color: #C0C0C0;
+   content: ">>";
+   padding: 0 5px;
+}
+
+
+#wb_LayoutGrid7 {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   background-color: transparent;
+   background-image: none;
+   border: 0px #CCCCCC solid;
+   box-sizing: border-box;
+   clear: both;
+   display: table;
+   position: relative;
+   table-layout: fixed;
+   text-align: center;
+   width: 100%;
+}
+#LayoutGrid7 {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 10px 15px 0px 15px;
+}
+#LayoutGrid7 .row {
+   margin-left: -15px;
+   margin-right: -15px;
+}
+#LayoutGrid7 .col-1 {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+   font-size: 0px;
+   min-height: 1px;
+   padding-left: 15px;
+   padding-right: 15px;
+   position: relative;
+}
+#LayoutGrid7 {
+}
+#LayoutGrid7 .col-1 {
+   float: left;
+}
+#LayoutGrid7 .col-1 {
+   background-color: transparent;
+   background-image: none;
+   text-align: left;
+   width: 100%;
+}
+#LayoutGrid7:before,
+#LayoutGrid7:after,
+#LayoutGrid7 .row:before,
+#LayoutGrid7 .row:after {
+   content: " ";
+   display: table;
+}
+#LayoutGrid7:after,
+#LayoutGrid7 .row:after {
+   clear: both;
+}
+@media (max-width: 480px) {
+   #LayoutGrid7 .col-1 {
+      float: none;
+      width: 100%;
+   }
+}

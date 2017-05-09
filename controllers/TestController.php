@@ -38,6 +38,10 @@ class TestController extends  MainController
 
     public function actionView()
     {
+
+        
+        $this->setMeta('Название статьи');//Мета тэги
+
         $id = Yii::$app->request->get('id');
 
         $model = Test::findOne($id);

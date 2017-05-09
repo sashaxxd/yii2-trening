@@ -17,11 +17,12 @@ class TestAsset extends AssetBundle
     public $css = [
         'css/index.css',
         'css/site-main.css',
+        'css/menu.css',
     ];
     public $js = [
     ];
     public $depends = [
-        'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
 }
