@@ -3,19 +3,18 @@
 namespace app\modules\admin\controllers;
 
 use Yii;
-use app\modules\admin\models\Test;
-use app\models\TestSearch;
+use app\modules\admin\models\Images;
+use app\models\ImagesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
- * TestController implements the CRUD actions for Test model.
+ * ImagesController implements the CRUD actions for Images model.
  */
-class TestController extends Controller
+class ImagesController extends Controller
 {
-
-    public  $layout = 'admin'; //Шаблон
     /**
      * @inheritdoc
      */
@@ -32,12 +31,12 @@ class TestController extends Controller
     }
 
     /**
-     * Lists all Test models.
+     * Lists all Images models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new TestSearch();
+        $searchModel = new ImagesSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,7 +46,7 @@ class TestController extends Controller
     }
 
     /**
-     * Displays a single Test model.
+     * Displays a single Images model.
      * @param string $id
      * @return mixed
      */
@@ -59,15 +58,19 @@ class TestController extends Controller
     }
 
     /**
-     * Creates a new Test model.
+     * Creates a new Images model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Test();
+        $model = new Images();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+         
+            
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -77,7 +80,7 @@ class TestController extends Controller
     }
 
     /**
-     * Updates an existing Test model.
+     * Updates an existing Images model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -87,6 +90,14 @@ class TestController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if($model->image)
+            {
+                 $model->upload();
+            }
+//           Yii::$app->session->setFlash('success', "Картинка {$model->name} обновлена"); сообщение не работает потом исправить
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -96,7 +107,7 @@ class TestController extends Controller
     }
 
     /**
-     * Deletes an existing Test model.
+     * Deletes an existing Images model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -109,15 +120,15 @@ class TestController extends Controller
     }
 
     /**
-     * Finds the Test model based on its primary key value.
+     * Finds the Images model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Test the loaded model
+     * @return Images the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Test::findOne($id)) !== null) {
+        if (($model = Images::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');

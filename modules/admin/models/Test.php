@@ -13,6 +13,7 @@ use Yii;
  */
 class Test extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
