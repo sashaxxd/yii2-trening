@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 
 
 
-    <?= $form->field($image, 'imageFile')->fileInput() ?>
+    <?= $form->field($model, 'image')->fileInput() //Передаем экземпляру класса $model свойству image значение из формы?>
 
 
 

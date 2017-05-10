@@ -29,6 +29,7 @@ class Images extends \yii\db\ActiveRecord
         return [
             [['img', 'name'], 'required'],
             [['img', 'name'], 'string', 'max' => 255],
+
         ];
     }
 
@@ -41,6 +42,14 @@ class Images extends \yii\db\ActiveRecord
             'id' => 'ID',
             'img' => 'Img',
             'name' => 'Name',
+            'kartinka' => 'kartinka',
         ];
+    }
+
+    public function saveImage($filename)
+    {
+         $this->kartinka = $filename;
+//        $this->save(false);
+
     }
 }

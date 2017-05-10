@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\modules\admin\models\UploadForm;
+use app\modules\admin\models\UploadImage;
 use Yii;
 use app\modules\admin\models\Images;
 use yii\data\ActiveDataProvider;
@@ -67,8 +68,19 @@ class ImagesController extends Controller
     public function actionCreate()
     {
         $model = new Images();
-        $image = new UploadForm();
-        
+        $model2 = new UploadImage();//Экземпляр класса модели
+
+
+
+        if (Yii::$app->request->isPost) {//Если нажали кнопку
+            $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
+            $model2->UploadedFile($file);
+            $model->saveImage($model2->UploadedFile($file));
+
+        }
+
+
+
 
 
 
@@ -76,20 +88,13 @@ class ImagesController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save() && Yii::$app->request->isPost) {
 
          
-                $image->imageFile = UploadedFile::getInstance($image, 'imageFile');
-                
-            
-                if ($image->upload()) {
-                    // file is uploaded successfully
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
-
+          
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'image' => $image,
+                'model2' => $model2,
                
 
             ]);
@@ -146,21 +151,20 @@ class ImagesController extends Controller
 
     public function actionImage()
     {
-        $image = new UploadForm();
+        $model2 = new UploadImage();//Экземпляр класса модели
 
 
-        if (Yii::$app->request->isPost) {
-            $image->imageFile = UploadedFile::getInstance($image, 'imageFile');
-            if ($image->upload()) {
-                // file is uploaded successfully
-                return;
-            }
+        if (Yii::$app->request->isPost) {//Если нажали кнопку
+            $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
+            $model2->UploadedFile($file);
+            echo $model2->UploadedFile($file);die();
+
         }
 
         
         return $this->render('image',
             [
-                'image' => $image,
+                'model' => $model2,//Передаем модель в вид
             ]
             );
     }
