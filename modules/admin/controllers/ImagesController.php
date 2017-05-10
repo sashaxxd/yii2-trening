@@ -2,9 +2,10 @@
 
 namespace app\modules\admin\controllers;
 
+use app\modules\admin\models\UploadForm;
 use Yii;
 use app\modules\admin\models\Images;
-use app\models\ImagesSearch;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -15,6 +16,7 @@ use yii\web\UploadedFile;
  */
 class ImagesController extends Controller
 {
+    public  $layout = 'admin'; //Шаблон
     /**
      * @inheritdoc
      */
@@ -36,11 +38,11 @@ class ImagesController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ImagesSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => Images::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
@@ -65,16 +67,31 @@ class ImagesController extends Controller
     public function actionCreate()
     {
         $model = new Images();
+        $image = new UploadForm();
+        
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+
+
+        if ($model->load(Yii::$app->request->post()) && $model->save() && Yii::$app->request->isPost) {
 
          
+                $image->imageFile = UploadedFile::getInstance($image, 'imageFile');
+                
             
+                if ($image->upload()) {
+                    // file is uploaded successfully
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
+
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'image' => $image,
+               
+
             ]);
         }
     }
@@ -90,14 +107,6 @@ class ImagesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if($model->image)
-            {
-                 $model->upload();
-            }
-//           Yii::$app->session->setFlash('success', "Картинка {$model->name} обновлена"); сообщение не работает потом исправить
-
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -133,5 +142,26 @@ class ImagesController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionImage()
+    {
+        $image = new UploadForm();
+
+
+        if (Yii::$app->request->isPost) {
+            $image->imageFile = UploadedFile::getInstance($image, 'imageFile');
+            if ($image->upload()) {
+                // file is uploaded successfully
+                return;
+            }
+        }
+
+        
+        return $this->render('image',
+            [
+                'image' => $image,
+            ]
+            );
     }
 }

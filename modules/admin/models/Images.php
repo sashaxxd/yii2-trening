@@ -13,19 +13,6 @@ use Yii;
  */
 class Images extends \yii\db\ActiveRecord
 {
-
-    public  $image;
-    public  $gallery;
-
-
-    public function behaviors()
-    {
-        return [
-            'image' => [
-                'class' => 'rico\yii2images\behaviors\ImageBehave',
-            ]
-        ];
-    }
     /**
      * @inheritdoc
      */
@@ -42,8 +29,6 @@ class Images extends \yii\db\ActiveRecord
         return [
             [['img', 'name'], 'required'],
             [['img', 'name'], 'string', 'max' => 255],
-            [['image'], 'file', 'extensions' => 'png, jpg'],
-            [['gallery'], 'file', 'extensions' => 'png, jpg', 'maxFiles' => 4],
         ];
     }
 
@@ -53,20 +38,9 @@ class Images extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID Картинки',
-            'image' => 'Картинка',
-            'name' => 'Имя картинки',
+            'id' => 'ID',
+            'img' => 'Img',
+            'name' => 'Name',
         ];
-    }
-    public function upload()
-    {
-        if($this->validate()){
-            $path = 'images/store/' . $this->image->baseName . '.'.$this->image->extension;
-            $this->image->saveAs($path);
-            $this->attachImage($path);
-            return true;
-        }else{
-            return false;
-        }
     }
 }

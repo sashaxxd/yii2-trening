@@ -16,6 +16,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Image', ['image', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -24,17 +25,12 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
-    <?php $image = $model->getImage();  ?>
+
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            [
-                'attribute' => 'image',
-                'value' => "<img src = '{$image->getUrl()}'>",
-                'format' => 'html',
-
-            ],
+            'img',
             'name',
         ],
     ]) ?>
