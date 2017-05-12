@@ -18,13 +18,13 @@ class UploadImage extends  Model //Cоздали модель для загру�
     public function rules()
     {
         return [
-            [['image'], 'file', 'extensions' => 'png, jpg'],
+            [['image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg'],
         ];
     }
 
     public function UploadedFile($file)
     {
-       
+
         $filename = strtolower(md5(uniqid($file->baseName))) .'.'. $file->extension;
         
         $file->saveAs(\Yii::getAlias('@web'). 'images/' . $filename);
