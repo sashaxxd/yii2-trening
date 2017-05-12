@@ -74,8 +74,8 @@ class ImagesController extends Controller
 
         if (Yii::$app->request->isPost) {//Если нажали кнопку
             $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
-            $model2->UploadedFile($file);
             $model->saveImage($model2->UploadedFile($file));
+            $model2->UploadedFile($file);
 
         }
 
@@ -115,9 +115,14 @@ class ImagesController extends Controller
 
 
         if (Yii::$app->request->isPost) {//Если нажали кнопку
+
+           
+
             $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
+//            Debug(strtolower(md5(uniqid($file->baseName))) .'.'. $file->extension);die;
+
+            $model->saveImage($model2->UploadedFile2($file, $model->kartinka));
             $model2->UploadedFile($file);
-            $model->saveImage($model2->UploadedFile($file));
 
         }
 

@@ -24,8 +24,21 @@ class UploadImage extends  Model //Cоздали модель для загру�
 
     public function UploadedFile($file)
     {
-        $file->saveAs(\Yii::getAlias('@web'). 'images/' . $file->name);
-        return $file->name;
+       
+        $filename = strtolower(md5(uniqid($file->baseName))) .'.'. $file->extension;
+        
+        $file->saveAs(\Yii::getAlias('@web'). 'images/' . $filename);
+        return $filename;
+    }
+
+    public function UploadedFile2($file, $kart )
+    {
+        unlink(\Yii::getAlias('@web'). 'images/' . $kart);
+
+        $filename = strtolower(md5(uniqid($file->baseName))) .'.'. $file->extension;
+
+        $file->saveAs(\Yii::getAlias('@web'). 'images/' . $filename);
+        return $filename;
     }
 
 }
