@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -24,6 +25,20 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'img',
             'name',
+            // Простой вариант. Автоматическое формирование изображения
+//            'kartinka:image',
+            // Второй вариант. Формирование изображения и его параметров через анонимную функцию
+            [
+                'label' => 'Картинка',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::img(Url::to( '/images/' . $data->kartinka  ),[
+                        'alt'=>'yii2 - картинка в gridview',
+                        'style' => 'width:55px;'
+                    ]);
+                },
+            ],
+
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

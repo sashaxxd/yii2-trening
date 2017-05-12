@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 
 <div class="images-form">
 
-    <?php $form = ActiveForm::begin() ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]) ?>
 
 
 
@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($image, 'imageFile')->fileInput() ?>
+    <?= $form->field($model2, 'image')->fileInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

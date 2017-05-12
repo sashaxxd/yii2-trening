@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\admin\models\Images */
@@ -16,7 +17,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <p>
         <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Image', ['image', 'id' => $model->id], ['class' => 'btn btn-default']) ?>
+       
         <?= Html::a('Delete', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
@@ -32,6 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'img',
             'name',
+            // Второй вариант. Формирование изображения и его параметров через анонимную функцию
+            [
+                'label' => 'Картинка',
+                'format' => 'raw',
+                'value' => function($data){
+                    return Html::img(Url::to( '/images/' . $data->kartinka  ),[
+                        'alt'=>'yii2 - картинка в gridview',
+                        'style' => 'width:55px;'
+                    ]);
+                },
+            ],
         ],
     ]) ?>
 

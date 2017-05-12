@@ -25,7 +25,7 @@ $this->registerCssFile('@web/css/images.css');
                     <span id="wb_zag"><?=  $item->name ?></span>
                 </div>
                 <div id="wb_Image1">
-                    <img src="<?=  $item->img ?>" id="Image1" alt="" class="img">
+                    <img src="images/<?=  $item->kartinka ?>" id="Image1" alt="" class="img">
                 </div>
             </div>
             <?php endforeach;?>
@@ -37,7 +37,7 @@ $this->registerCssFile('@web/css/images.css');
     <div id="LayoutGrid7">
         <div class="row">
             <div class="col-1">
-                
+
             </div>
         </div>
     </div>
