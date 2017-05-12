@@ -87,8 +87,8 @@ class ImagesController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save() && Yii::$app->request->isPost) {
 
-         
-          
+
+
 
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
@@ -110,12 +110,24 @@ class ImagesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model2 = new UploadImage();//Экземпляр класса модели
+
+
+
+        if (Yii::$app->request->isPost) {//Если нажали кнопку
+            $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
+            $model2->UploadedFile($file);
+            $model->saveImage($model2->UploadedFile($file));
+
+        }
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'model2' => $model2,
             ]);
         }
     }
@@ -149,23 +161,23 @@ class ImagesController extends Controller
         }
     }
 
-    public function actionImage()
-    {
-        $model2 = new UploadImage();//Экземпляр класса модели
-
-
-        if (Yii::$app->request->isPost) {//Если нажали кнопку
-            $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
-            $model2->UploadedFile($file);
-            echo $model2->UploadedFile($file);die();
-
-        }
-
-        
-        return $this->render('image',
-            [
-                'model' => $model2,//Передаем модель в вид
-            ]
-            );
-    }
+//    public function actionImage()
+//    {
+//        $model2 = new UploadImage();//Экземпляр класса модели
+//
+//
+//        if (Yii::$app->request->isPost) {//Если нажали кнопку
+//            $file = UploadedFile::getInstance( $model2, 'image');// В переменную записывается объект
+//            $model2->UploadedFile($file);
+//            echo $model2->UploadedFile($file);die();
+//
+//        }
+//
+//
+//        return $this->render('image',
+//            [
+//                'model' => $model2,//Передаем модель в вид
+//            ]
+//            );
+//    }
 }
