@@ -69,6 +69,7 @@ $config = [
 
                 'images' => 'images/index',//Указываем урл для первой страницы контроллера тест
                 'kartinka' => 'kartinka/index',
+                'ex' => 'ex/ex',
             ],
         ],
 

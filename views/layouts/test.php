@@ -24,6 +24,7 @@ TestAsset::register($this);
 </head>
 <body>
 <?php $this->beginBody() ?>
+
 <!-- МЕНЮ -->
 <div id="wb_pod_menu">
     <div id="pod_menu">
@@ -39,6 +40,7 @@ TestAsset::register($this);
                             'items' => [
                                 ['label' => 'Главная', 'url' => ['test/index']],
                                 ['label' => 'Изображения', 'url' => ['images/index']],
+                                ['label' => 'PHPexcel', 'url' => ['ex/ex']],
 
                             ],
                             'options' => [
@@ -87,6 +89,21 @@ TestAsset::register($this);
         </div>
     </div>
 </div>
+<?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <?php echo Yii::$app->session->getFlash('success'); ?>
+    </div>
+<?php endif; ?>
+
+<?php if (Yii::$app->session->hasFlash('error')): ?>
+    <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <?php echo Yii::$app->session->getFlash('error'); ?>
+    </div>
+<?php endif; ?>
 <!-- КОНТЕНТ -->
         <?= $content ?>
 <!-- ФУТЕР -->
