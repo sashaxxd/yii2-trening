@@ -38,6 +38,7 @@ AppAsset::register($this);
         'items' => [
             ['label' => 'Cтатьи', 'url' => ['/admin']],
             ['label' => 'Изображения', 'url' => ['/admin/images']],
+            ['label' => 'Загрузчик изображений', 'url' => ['/admin/gallery']],
           
 
         ],

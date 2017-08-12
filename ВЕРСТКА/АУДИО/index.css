@@ -1,0 +1,22 @@
+body {
+   background-color: #FFFFFF;
+   color: #000000;
+   font-family: Arial;
+   font-size: 13px;
+   font-weight: normal;
+   line-height: 1.1875;
+   margin: 0;
+   padding: 0;
+}
+#MediaPlayer1 {
+   height: 100%;
+   left: 0;
+   top: 0;
+   width: 100%;
+}
+#MediaPlayer2 {
+   height: 100%;
+   left: 0;
+   top: 0;
+   width: 100%;
+}

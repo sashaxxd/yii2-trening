@@ -18,9 +18,18 @@ class TestAsset extends AssetBundle
         'css/index.css',
         'css/site-main.css',
         'css/menu.css',
+        'css/gallery.css',
+        'magnificpopup/magnific-popup.css',
         
     ];
     public $js = [
+        'js/jquery-1.12.4.min.js',
+//        'js/wb.conveyerbelt.min.js',
+        'js/wb.lazyload.min.js',
+        'magnificpopup/jquery.magnific-popup.min.js',
+//        'js/main.js',
+
+
     ];
     public $depends = [
 //        'yii\web\YiiAsset',

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Безымянная страница</title>
+<meta name="generator" content="WYSIWYG Web Builder 11 - http://www.wysiwygwebbuilder.com">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="Безымянный1.css" rel="stylesheet">
+<link href="index.css" rel="stylesheet">
+<script src="jquery-1.12.4.min.js"></script>
+<script src="wb.lazyload.min.js"></script>
+<script src="magnificpopup/jquery.magnific-popup.min.js"></script>
+<link rel="stylesheet" href="magnificpopup/magnific-popup.css">
+<script>   
+   $(document).ready(function()
+   {
+      $("a[data-rel='PhotoGallery1']").attr('rel', 'PhotoGallery1');
+      $("#PhotoGallery1").magnificPopup({delegate:'a', type:'image', gallery: {enabled: true, navigateByImgClick: true}});
+      $('img[data-src]').lazyload();
+   });
+</script>
+</head>
+<body>
+   <div id="wb_main_gallery">
+      <div id="main_gallery">
+         <div class="row">
+            <div class="col-1">
+               <div id="wb_PhotoGallery1">
+                  <div id="PhotoGallery1">
+                     <div class="thumbnails">
+                        <div class="thumbnail">
+                           <a href="images/slide1.jpg" data-rel="" title="slide1"><img alt="slide1" src="images/placeholder.gif" data-src="images/slide1.jpg" title="slide1"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide2.jpg" data-rel="" title="slide2"><img alt="slide2" src="images/placeholder.gif" data-src="images/slide2.jpg" title="slide2"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide3.jpg" data-rel="" title="slide3"><img alt="slide3" src="images/placeholder.gif" data-src="images/slide3.jpg" title="slide3"></a>
+                        </div>
+                        <div class="clearfix visible-col3"></div>
+                        <div class="thumbnail">
+                           <a href="images/slide4.jpg" data-rel="" title="slide4"><img alt="slide4" src="images/placeholder.gif" data-src="images/slide4.jpg" title="slide4"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide5.jpg" data-rel="" title="slide5"><img alt="slide5" src="images/placeholder.gif" data-src="images/slide5.jpg" title="slide5"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide6.jpg" data-rel="" title="slide6"><img alt="slide6" src="images/placeholder.gif" data-src="images/slide6.jpg" title="slide6"></a>
+                        </div>
+                        <div class="clearfix visible-col3"></div>
+                        <div class="thumbnail">
+                           <a href="images/slide7.jpg" data-rel="" title="slide7"><img alt="slide7" src="images/placeholder.gif" data-src="images/slide7.jpg" title="slide7"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide8.jpg" data-rel="" title="slide8"><img alt="slide8" src="images/placeholder.gif" data-src="images/slide8.jpg" title="slide8"></a>
+                        </div>
+                        <div class="thumbnail">
+                           <a href="images/slide9.jpg" data-rel="" title="slide9"><img alt="slide9" src="images/placeholder.gif" data-src="images/slide9.jpg" title="slide9"></a>
+                        </div>
+                        <div class="clearfix visible-col3"></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+</html>

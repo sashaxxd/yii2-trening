@@ -19,7 +19,9 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "costa-rico/yii2-images": "dev-master",
-        "moonlandsoft/yii2-phpexcel": "*"
+        "moonlandsoft/yii2-phpexcel": "*",
+        "zxbodya/yii2-gallery-manager": "*@dev"
+
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",
@@ -28,7 +30,8 @@
 
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1",
-        "codeception/specify": "~0.4.3"
+        "codeception/specify": "~0.4.3",
+        "xj/yii2-jplayer-widget": "*"
     },
     "config": {
         "process-timeout": 1800
