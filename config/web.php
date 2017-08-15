@@ -63,6 +63,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+//                'admin/update/<id:\d+>' => 'admin/test/update',
                 'gallery' => 'gallery/index',
                 'test/<id:\d+>' => 'test/view',
                 'page/<page:\d+>' => 'test/index',

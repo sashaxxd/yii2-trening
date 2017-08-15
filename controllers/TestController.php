@@ -11,6 +11,7 @@ use Yii;
 use yii\data\Pagination;
 use yii\web\HttpException;
 use app\models\GalleryImage;
+use zxbodya\yii2\galleryManager\GalleryManagerAction;
 
 
 class TestController extends  MainController
@@ -37,6 +38,20 @@ class TestController extends  MainController
         );
     }
 
+//    public function actions()
+//    {
+//        return [
+//            'galleryApi' => [
+//                'class' => GalleryManagerAction::className(),
+//                // mappings between type names and model classes (should be the same as in behaviour)
+//                'types' => [
+////                    'gallery' => Test::className(),
+//                    'gallery' => GalleryImage::className(),
+//                ]
+//            ],
+//        ];
+//    }
+
     public function actionView()
     {
 
@@ -44,12 +59,12 @@ class TestController extends  MainController
         $this->setMeta('Название статьи');//Мета тэги
 
         $id = Yii::$app->request->get('id');
-        $model2 = GalleryImage::find()->all();
+
         $model = Test::findOne($id);
         if(empty($model)) throw new HttpException(404, 'Нет такой страницы');
         return $this->render('view',[
             'model' => $model,
-            'model2' => $model2[0],
+
         ]);
     }
 

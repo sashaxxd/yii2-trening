@@ -8,6 +8,8 @@ use app\models\TestSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\GalleryImage;
+use zxbodya\yii2\galleryManager\GalleryManagerAction;
 
 /**
  * TestController implements the CRUD actions for Test model.
@@ -30,6 +32,20 @@ class TestController extends Controller
             ],
         ];
     }
+
+    public function actions()
+    {
+        return [
+            'galleryApi' => [
+                'class' => GalleryManagerAction::className(),
+                // mappings between type names and model classes (should be the same as in behaviour)
+                'types' => [
+                    'gallery' => Test::className()
+                ]
+            ],
+        ];
+    }
+
 
     /**
      * Lists all Test models.
@@ -91,6 +107,7 @@ class TestController extends Controller
         } else {
             return $this->render('update', [
                 'model' => $model,
+
             ]);
         }
     }

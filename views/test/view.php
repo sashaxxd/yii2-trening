@@ -33,7 +33,10 @@ $this->registerJsFile('@web/js/main.js', ['depends' => [yii\web\JqueryAsset::cla
         <div class="row">
             <div class="col-1">
                 <div id="wb_Text2">
-                    <span id="wb_uid2"><?= $model->text ?></span>
+                    <span id="wb_uid2"><?= $model->text ?>
+
+                    </span>
+
 <?php
 
 
@@ -65,11 +68,7 @@ $this->registerJsFile('@web/js/main.js', ['depends' => [yii\web\JqueryAsset::cla
 
 ?>
     <!-- тут массив-->
-<?php
-//foreach($model2->getBehavior('galleryBehavior')->getImages() as $image) {
-//    echo Html::img($image->getUrl('medium'));
-//}
-//?>
+
                     <div id="wb_main_gallery">
                         <div id="main_gallery">
                             <div class="row">
@@ -78,7 +77,7 @@ $this->registerJsFile('@web/js/main.js', ['depends' => [yii\web\JqueryAsset::cla
                                         <div id="PhotoGallery1">
                                             <div class="thumbnails">
 
-                                                <?php      foreach($model2->getBehavior('galleryBehavior')->getImages() as $image):?>
+                                                <?php      foreach($model->getBehavior('galleryBehavior')->getImages() as $image):?>
                                                     <div class="thumbnail">
                                                         <a href="<?= $image->getUrl('medium'); ?>"><?= Html::img("/images/placeholder.gif", ['alt' => 'Наш логотип', 'data-src' => $image->getUrl('medium')]) ?></a>
                                                     </div>
