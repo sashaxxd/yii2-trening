@@ -30,7 +30,7 @@ use zxbodya\yii2\galleryManager\GalleryManager;
 
 <?php
 if ($model->isNewRecord) {
-    echo 'Can not upload images for new record';
+    echo 'Cначала создайте запись потом сможете создать для нее галерею';
 } else {
     echo GalleryManager::widget(
         [

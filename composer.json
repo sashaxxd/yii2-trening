@@ -20,7 +20,10 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "costa-rico/yii2-images": "dev-master",
         "moonlandsoft/yii2-phpexcel": "*",
-        "zxbodya/yii2-gallery-manager": "*@dev"
+        "zxbodya/yii2-gallery-manager": "*@dev",
+        "kartik-v/yii2-widget-depdrop": "@dev",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "creocoder/yii2-nested-sets": "^0.9.0"
 
     },
     "require-dev": {

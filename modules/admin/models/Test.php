@@ -77,9 +77,9 @@ class Test extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'text' => 'Text',
+            'id' => 'Идентификатор',
+            'name' => 'Заголовок',
+            'text' => 'Контент',
         ];
     }
 

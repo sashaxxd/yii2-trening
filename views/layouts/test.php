@@ -25,6 +25,9 @@ TestAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+
+<div class="wrapper">
+    <div class="content">
 <!-- МЕНЮ -->
 <div id="wb_pod_menu">
     <div id="pod_menu">
@@ -106,7 +109,9 @@ TestAsset::register($this);
 <?php endif; ?>
 <!-- КОНТЕНТ -->
         <?= $content ?>
+    </div>
 <!-- ФУТЕР -->
+    <div class="footer">
 <div id="wb_LayoutGrid5">
     <div id="LayoutGrid5">
         <div class="row">
@@ -120,8 +125,8 @@ TestAsset::register($this);
         </div>
     </div>
 </div>
-
-
+     </div>
+</div>
 <?php $this->endBody() ?>
 </body>
 </html>
